@@ -37,7 +37,7 @@ public class AttendenceServlet extends HttpServlet {
         //Hämtar info från databasen med sql fråga och skickar ut det till hemsidan
         try {
             String sql = "SELECT students.name AS StudentFirstName, students.lastname AS StudentLastName, courses.name AS CourseName FROM attendance INNER JOIN students ON attendance.`student.id` = students.students_id INNER JOIN courses ON attendance.course_id = courses.courses_id";
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "usergrit", "usergrit");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 

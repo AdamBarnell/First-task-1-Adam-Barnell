@@ -31,7 +31,7 @@ public class CoursesServlet extends HttpServlet {
         out.println("<h1> Courses</h1>");
         try {
             String sql = "SELECT * FROM courses";
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "usergrit", "usergrit");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
