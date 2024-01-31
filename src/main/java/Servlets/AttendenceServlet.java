@@ -51,13 +51,13 @@ public class AttendenceServlet extends HttpServlet {
                 studentCourses.putIfAbsent(fullName, new ArrayList<>());
                 studentCourses.get(fullName).add(courseName);
             }
-            //Skriver ut allt
+            //Skriver ut allt i en ptaggar
             for (Map.Entry<String, List<String>> entry : studentCourses.entrySet()) {
                 out.println("<p>Student: " + entry.getKey() + ", Courses: " + String.join(", ", entry.getValue()) + "</p>");
             }
 
         } catch (Exception e) {
-            out.println("Error: " + e.toString());
+            out.println("Error: " + e);
         }
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
