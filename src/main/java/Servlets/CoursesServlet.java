@@ -22,6 +22,7 @@ public class CoursesServlet extends HttpServlet {
         out.println("<header><link rel =stylesheet href=/All.css> </link></header>");
         out.println("<nav class=topnav>");
         out.println("<li><img src='https://gritacademy.se/wp-content/uploads/2021/05/Grit-Academy-logo.png' width='100' height='50' /></li>");
+        out.println("<li><a href='index.html'> Home </a></li>");
         out.println("<li><a href='http://localhost:9090/students'> Students </a></li>");
         out.println("<li><a href='http://localhost:9090/courses'> Courses </a></li>");
         out.println("<li><a href='http://localhost:9090/attendence'> Attendance </a></li>");
