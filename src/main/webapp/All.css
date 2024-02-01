@@ -28,6 +28,10 @@ h1{
     color: black;
 }
 
+.homebutton a:hover{
+    background-color:black;
+}
+
 li{
     display: block;
     flex-wrap: wrap;
