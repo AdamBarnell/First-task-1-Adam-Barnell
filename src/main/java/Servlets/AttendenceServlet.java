@@ -34,7 +34,6 @@ public class AttendenceServlet extends HttpServlet {
         out.println("<body>");
         out.println("<h1> Attendence</h1>");
         Map<String, List<String>> studentCourses = new HashMap<>();
-        //Hämtar info från databasen med sql fråga och skickar ut det till hemsidan
         try {
             String sql = "SELECT students.name AS StudentFirstName, students.lastname AS StudentLastName, courses.name AS CourseName FROM attendance INNER JOIN students ON attendance.`student.id` = students.students_id INNER JOIN courses ON attendance.course_id = courses.courses_id";
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "usergrit", "usergrit");
@@ -45,20 +44,27 @@ public class AttendenceServlet extends HttpServlet {
                 String studentFirstName = rs.getString("StudentFirstName");
                 String studentLastName = rs.getString("StudentLastName");
                 String courseName = rs.getString("CourseName");
-                //Lägger till fullständigt namn med förnamn och efter name till en string
                 String fullName = studentFirstName + " " + studentLastName;
 
                 studentCourses.putIfAbsent(fullName, new ArrayList<>());
                 studentCourses.get(fullName).add(courseName);
             }
-            //Skriver ut allt i en ptaggar
+
+            // Startar tabellen och lägger till rubriker
+            out.println("<table border='1'>");
+            out.println("<tr><th>Student</th><th>Kurser</th></tr>");
+
+            // Loopar igenom varje student och dess kurser för att skapa en tabellrad
             for (Map.Entry<String, List<String>> entry : studentCourses.entrySet()) {
-                out.println("<p>Student: " + entry.getKey() + ", Courses: " + String.join(", ", entry.getValue()) + "</p>");
+                out.println("<tr><td>" + entry.getKey() + "</td><td>" + String.join(", ", entry.getValue()) + "</td></tr>");
             }
+
+            out.println("</table>");
 
         } catch (Exception e) {
             out.println("Error: " + e);
         }
+
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
         out.println("</html>");

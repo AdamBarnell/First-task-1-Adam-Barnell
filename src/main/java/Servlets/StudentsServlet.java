@@ -36,17 +36,27 @@ public class StudentsServlet extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "usergrit", "usergrit");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
+
+            // Starta tabellen och lägger till kolumnnamn
+            out.println("<table>");
+            out.println("<tr><th>ID</th><th>Namn</th><th>Efternamn</th><th>Hobby</th><th>Stad</th></tr>");
+
             while (rs.next()) {
                 int id = rs.getInt("students_id");
                 String name = rs.getString("name");
                 String lastname = rs.getString("lastname");
                 String hobby = rs.getString("hobby");
                 String town = rs.getString("town");
-                out.println("<p>ID: " + id + ", Name: " + name + " " + lastname + ", Hobby: " + hobby + ", Stad: " + town +"</p>");
+
+                // Lägger till en rad för varje elev
+                out.println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + lastname + "</td><td>" + hobby + "</td><td>" + town + "</td></tr>");
             }
+
+            out.println("</table>");
         } catch (Exception e) {
-            out.println("Error: " + e.toString());
+            out.println("Error: " + e);
         }
+
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
         out.println("</html>");
