@@ -57,7 +57,7 @@ public class StudentsServlet extends HttpServlet {
         } catch (Exception e) {
             out.println("Error: " + e);
         }
-
+        out.println("<p></p><br></br>");
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
         out.println("</html>");

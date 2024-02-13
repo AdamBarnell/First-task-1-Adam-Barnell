@@ -36,7 +36,7 @@ public class CoursesServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery(sql);
 
             // Starta tabellen och lägger till kolumnnamn
-            out.println("<table border='1'>");
+            out.println("<table>");
             out.println("<tr><th>ID</th><th>YHP</th><th>Name</th><th>Description</th></tr>");
 
             while (rs.next()) {
@@ -53,7 +53,7 @@ public class CoursesServlet extends HttpServlet {
         } catch (Exception e) {
             out.println("Error: " + e);
         }
-
+        out.println("<p></p><br></br>");
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
         out.println("</html>");

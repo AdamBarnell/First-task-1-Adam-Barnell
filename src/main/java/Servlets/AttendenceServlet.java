@@ -51,7 +51,7 @@ public class AttendenceServlet extends HttpServlet {
             }
 
             // Startar tabellen och lägger till rubriker
-            out.println("<table border='1'>");
+            out.println("<table>");
             out.println("<tr><th>Student</th><th>Kurser</th></tr>");
 
             // Loopar igenom varje student och dess kurser för att skapa en tabellrad
@@ -64,7 +64,7 @@ public class AttendenceServlet extends HttpServlet {
         } catch (Exception e) {
             out.println("Error: " + e);
         }
-
+        out.println("<p></p><br></br>");
         out.println("<footer><p> Gjord av Adam Barnell </p></footer>");
         out.println("</body>");
         out.println("</html>");
