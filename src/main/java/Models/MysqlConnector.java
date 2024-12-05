@@ -6,9 +6,9 @@ import java.sql.*;
 public class MysqlConnector {
     public static Connector connect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName();
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gritacademy", "usergrit", "usergrit");
+            Connection con = DriverManager.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from students");
             while (rs.next()) {
